@@ -1,0 +1,23 @@
+# render.yaml — Deploy CampusSphere to Render.com as a single Web Service
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: campussphere
+    env: node
+    region: singapore   # closest to India
+    plan: free
+    rootDir: .
+    buildCommand: cd client && npm install && npm run build && cd ../server && npm install
+    startCommand: node server/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        sync: false     # You will paste this in Render dashboard
+      - key: JWT_SECRET
+        sync: false     # You will paste this in Render dashboard
+      - key: CLIENT_URL
+        sync: false     # e.g. https://campussphere.onrender.com

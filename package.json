@@ -1,0 +1,13 @@
+{
+  "name": "campussphere-root",
+  "version": "1.0.0",
+  "description": "CampusSphere - Full-Stack MERN Academic & Mentorship Platform",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "npm --prefix server start",
+    "server:dev": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed",
+    "build": "npm --prefix client install && npm --prefix client run build && npm --prefix server install"
+  }
+}
